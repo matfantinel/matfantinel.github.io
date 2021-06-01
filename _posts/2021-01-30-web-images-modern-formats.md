@@ -4,9 +4,12 @@ title: "Smarter, Lighter, Better Images: A Guide to Optimization"
 images-path: /posts/2021-01-30-web-images-modern-formats
 image: /images/posts/2021-01-30-web-images-modern-formats/cover.jpg
 tags: [Front-End, Guide, HTML, CSS, Optimization]
+toc: true
 ---
 
 Do you know how big the images displayed on your website are? When you open a page, the browser starts downloading a bunch of files in order to display it. Research shows that [images are the most requested asset type](https://httparchive.org/reports/state-of-images){:target="_blank"} and take up more bandwidth than any other resource. So, making sure they are as small as they can be can greatly improve the load times for your website. (spoiler alert: mine's become 85% faster!)
+
+# The Easy Part
 
 ## More efficient formats
 
@@ -125,7 +128,7 @@ You might have noticed the `loading="lazy"` and `decoding="async"` attributes in
   figcaption="When I scroll down the page, the images are downloaded as they're close to appearing."
 %}
 
-# Results In Practice 
+## Results In Practice 
 
 Since I like using my own website and blog as a testbed for new stuff that I learn, I have applied these optimizations to it. The results were incredible!
 

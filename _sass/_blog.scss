@@ -150,7 +150,7 @@ section.hero.blog {
     .footer {
       font-size: 1rem;
       padding: 25px 0;
-      border-top: 1px dashed var(--lighter-fg-color);
+      border-top: 1px dashed var(--lightest-fg-color);
     }
   }
 }
@@ -174,6 +174,84 @@ section.hero.blog {
   .blog-post-page .card:not(.blog-post) .content {
     h1.title {
       font-size: 3rem;
+    }
+  }
+}
+
+
+#table-of-contents {
+  #static-table {
+    background: var(--bg-color);
+    border-radius: 40px;
+    padding: 30px;
+    width: fit-content;
+  
+    @include for-tablet-landscape-up {
+      display: inline-block;
+      float: right;
+      margin-left: 30px;
+    }
+
+    &.float {
+      position: fixed;
+      right: 15px;
+      top: 35%;
+      box-shadow: var(--card-box-shadow);
+      background: var(--card-bg-color);
+    }
+    & > ul {
+      padding: 0;
+    }
+  }
+
+  #floating-table {
+    
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  
+  ul, li {
+    list-style: none;
+    margin: 0;
+
+    a {
+      color: var(--lighter-fg-color);
+      font-family: var(--title-font);
+      display: inline-block;
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+      letter-spacing: -.5px;
+      transition: color .4s;
+
+      @include for-tablet-portrait-down {
+        padding: 5px 0;
+      }
+
+      &::before {
+        content: '#';
+        color: var(--accent-color);
+        font-weight: 700;
+        margin-left: -15px;
+        position: absolute;
+        transition: opacity .4s;
+        opacity: 0;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--accent-color);
+          &::before {          
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 }

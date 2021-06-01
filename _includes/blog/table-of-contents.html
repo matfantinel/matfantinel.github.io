@@ -1,0 +1,90 @@
+{% assign content = include.content %}
+
+<div id="table-of-contents">
+  <div id="static-table">
+    <h1>Table of Contents</h1>
+    {% include plugins/toc.html html=content sanitize=true %}
+  </div>
+  <div id="floating-table">
+    
+  </div>
+</div>
+
+<script type="text/javascript">
+  function highlightToc() {
+    var targets = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+
+    var intersectionObserverOptions = {
+      root: null,
+      rootMargin: '-30% 0px',
+      threshold: 0.1,
+    };
+
+    var observer = new IntersectionObserver(onIntersection, intersectionObserverOptions);
+
+    targets.forEach((q) => {
+      observer.observe(q);
+    });
+
+    function onIntersection(entries) {
+      entries.forEach((entry) => {
+        console.log({ id: entry.target.id, ratio: entry.intersectionRatio });
+        if (entry.intersectionRatio > 0.1) {
+          addHighlight(entry.target.id);
+        }
+      });
+    }
+
+    function addHighlight(id) {
+      const anchorHref = id;
+      const anchor = document.querySelector(`#table-of-contents a[href="#${anchorHref}"]`);
+      if (anchor) {
+        anchor.classList.add('highlighted', 'marker');
+
+        targets.forEach((q) => {
+          if (q.id != id) {
+            removeHighlight(q.id);
+          }
+        });
+      }
+    }
+
+    function removeHighlight(id) {
+      const anchorHref = id;
+      const anchor = document.querySelector(`#table-of-contents a[href="#${anchorHref}"]`);
+      if (anchor) {
+        anchor.classList.remove('highlighted', 'marker');
+      }
+    }
+  }
+
+  function floatTable() {
+    var target = document.querySelector('#static-table');
+
+    var intersectionObserverOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0,
+    };
+
+    var observer = new IntersectionObserver(onIntersection, intersectionObserverOptions);
+
+    observer.observe(target);
+
+    function onIntersection(entries) {
+      entries.forEach((entry) => {
+        console.log({ visible: entry.isVisible, intersecting: entry.isIntersecting, rest: entry });
+        if (!entry.isIntersecting) {
+          document.querySelector('#table-of-contents #floating-table').classList.add('float');
+        }  else {
+          document.querySelector('#table-of-contents #floating-table').classList.remove('float');
+        }
+      });
+    }    
+  }
+
+  setTimeout(() => {
+    // highlightToc();
+    floatTable();
+  }, 500);
+</script>

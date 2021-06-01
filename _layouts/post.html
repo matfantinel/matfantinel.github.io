@@ -34,7 +34,12 @@ layout: default
             path=page.images-path
             filename="cover"
             alt="Cover image for this article" %}
-          {% include base/anchor-headings.html html=content anchorBody="#" %}
+
+          {% if page.toc %}
+            {% include blog/table-of-contents.html content=content %}
+          {% endif %}
+
+          {% include plugins/anchor-headings.html html=content anchorBody="#" %}
         </article>
 
         <div class="footer">

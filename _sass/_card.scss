@@ -42,10 +42,10 @@
 
         a {
           margin-left: 10px;
-          color: var(--lighter-fg-color);
+          color: var(--lightest-fg-color);
 
           svg {
-            fill: var(--lighter-fg-color);
+            fill: var(--lightest-fg-color);
             height: 1.7rem;
           }
   
@@ -62,11 +62,11 @@
     }
 
     .published-date {
-      color: var(--lighter-fg-color);
+      color: var(--lightest-fg-color);
       font-size: 16px;
     }
     .read-time {
-      color: var(--lighter-fg-color);
+      color: var(--lightest-fg-color);
       font-size: 16px;
       display: block;
     }

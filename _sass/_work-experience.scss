@@ -57,7 +57,7 @@
         }
 
         span.timeframe {
-          color: var(--lighter-fg-color);
+          color: var(--lightest-fg-color);
           font-size: 0.85rem;
 
           @include for-tablet-landscape-up {

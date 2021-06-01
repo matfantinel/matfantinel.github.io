@@ -15,6 +15,7 @@
 html {
   font-family: var(--default-font);
   scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  scroll-behavior: smooth;
 
   ::-webkit-scrollbar {
     width: 8px;
@@ -42,8 +43,10 @@ body {
 a {
   color: var(--accent-color);
 
-  &:hover {
-    text-decoration: underline;
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 h1,
@@ -89,7 +92,7 @@ code {
     font-family: var(--title-font);
     font-style: italic;
     margin-right: 2px;
-    text-shadow: 0 1px rgba(var(--fg-color-rgb),0.1);
+    text-shadow: 0 1px rgba(var(--fg-color-rgb), 0.1);
   }
   &.bottom-accent {
     position: relative;
